@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import react  from 'react';
+import {BrowserRouter, Route ,Switch} from 'react-router-dom'
 import './App.css';
+import Home from './pages/Home';
+import Netflixshow from './pages/Netflixshow';
+import Footer from './component/Footer/Footer';
+import Scrolltotop from './component/Scrolltotop/Scrolltotop';
+
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Scrolltotop/>
+    
+    <Switch>
+      <Route exact path="/" component={Home}/>
+      <Route path="/netflixshow" component={Netflixshow}/>
+    </Switch>
+
+      <Footer/>
     </div>
+  
+
+    </BrowserRouter>
   );
 }
 
